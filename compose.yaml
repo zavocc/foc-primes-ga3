@@ -7,8 +7,8 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=Etc/UTC
-      - PASSWORD=passw0rd
-      - SUDO_PASSWORD=password
+      - PASSWORD=${USER1_PASSWORD:-ch4ng3m3}
+      - SUDO_PASSWORD=${USER1_PASSWORD:-ch4ng3m3}
       - PROXY_DOMAIN=${USER1_NAME:-staging1}.geraldobtd.me
       - DEFAULT_WORKSPACE=/config/workspace
     volumes:
@@ -31,8 +31,8 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=Etc/UTC
-      - PASSWORD=passw0rd
-      - SUDO_PASSWORD=password
+      - PASSWORD=${USER2_PASSWORD:-ch4ng3m3}
+      - SUDO_PASSWORD=${USER2_PASSWORD:-ch4ng3m3}
       - PROXY_DOMAIN=${USER2_NAME:-staging2}.geraldobtd.me
       - DEFAULT_WORKSPACE=/config/workspace
     volumes:
