@@ -8,5 +8,5 @@ This setup is basic for team programming
 - Caddy reverse proxy domains for LetsEncrypt HTTPS encryption
 
 ### Quirks
-When bidrectionally sharing each other's workspace, one would see an empty folder of user's workspace inside other person's workspace... \
-But should not affect the way how things are accessed either way/
+When bidrectionally sharing each other's workspace, one would see an empty folder of their workspace inside other person's workspace... \
+But should not affect the way how things are accessed either way

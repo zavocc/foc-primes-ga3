@@ -19,7 +19,7 @@ services:
       - ${WORKDIR:-${PWD}}/workspace-${USER1_NAME:-staging1}:/config/workspace
 
       # User 2 workspace
-      - ${WORKDIR:-${PWD}}/workspace-${USER2_NAME:-staging2}:/config/workspace/workspace-${USER2_NAME:-staging2}:ro
+      - ${WORKDIR:-${PWD}}/workspace-${USER2_NAME:-staging2}:/config/workspace/${USER2_NAME:-staging2}-files:ro
     expose:
       - 8443
     restart: unless-stopped
@@ -43,7 +43,7 @@ services:
       - ${WORKDIR:-${PWD}}/workspace-${USER2_NAME:-staging2}:/config/workspace
 
       # User 1 workspace
-      - ${WORKDIR:-${PWD}}/workspace-${USER1_NAME:-staging1}:/config/workspace/workspace-${USER1_NAME:-staging1}:ro
+      - ${WORKDIR:-${PWD}}/workspace-${USER1_NAME:-staging1}:/config/workspace/${USER1_NAME:-staging1}-files:ro
     expose:
       - 8443
     restart: unless-stopped
