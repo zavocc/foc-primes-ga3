@@ -14,6 +14,8 @@ echo ""
 
 [[ $REPLY =~ ^[Yy]$ ]] && ${EDITOR:-vi} .env
 
+# Source the .env file
+
 # Perform sed the Caddyfile to change $USER1_NAME and $USER2_NAME from staging1 and staging2
 if [ -f Caddyfile ]; then
     echo "[*] Setting up Caddyfile..."
