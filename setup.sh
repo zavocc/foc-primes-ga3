@@ -10,6 +10,7 @@ cp .env.template .env
 
 # Ask if the user wants to edit the .env file
 read -p "Do you want to edit the .env file? [y/n] " -n 1 -r
+echo ""
 
 [[ $REPLY =~ ^[Yy]$ ]] && ${EDITOR:-vi} .env
 
@@ -28,6 +29,7 @@ mkdir -p "config-${USER1_NAME:-staging1}"
 mkdir -p "config-${USER2_NAME:-staging2}"
 
 read -p "Also setup blank workspace directories? [y/n] " -n 1 -r
+echo ""
 
 # using the current shell context.
 [[ $REPLY =~ ^[Yy]$ ]] && {
