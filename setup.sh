@@ -2,7 +2,12 @@
 set -e -u
 
 # Ensure we cd into directory full path where this script is located
-cd "$(dirname "$(readlink -f "$0")")"
+cd "$(dirname "$(readlink -f "$0")")" 
+
+if [ -f .setupisdone ]; then
+    echo "Setup is already done. Exiting..."
+    exit 1
+fi
 
 # Copy the .env.template file to .env
 echo "[*] Copying .env.template to .env"
@@ -42,3 +47,6 @@ echo ""
 }
 
 echo "[*] Done! Please run 'docker compose up'"
+
+# Create .setupisdone file
+touch .setupisdone
