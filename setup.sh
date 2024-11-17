@@ -48,7 +48,7 @@ echo ""
 
 # create share directory
 echo "[*] Creating share directory..."
-mkdir share
+mkdir -p share
 
 echo "[*] Done! Please run 'docker compose up'"
 
