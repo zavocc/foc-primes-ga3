@@ -1,0 +1,7 @@
+prog1.geraldobtd.me {
+    reverse_proxy code-server-prog1:8443
+}
+
+prog2.geraldobtd.me {
+    reverse_proxy code-server-prog2:8443
+}

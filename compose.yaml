@@ -1,0 +1,54 @@
+---
+services:
+  code-server-prog1:
+    image: lscr.io/linuxserver/code-server:latest
+    container_name: code-server-prog1
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - PASSWORD=passw0rd
+      - SUDO_PASSWORD=password
+      - PROXY_DOMAIN=code-server.my.domain
+      - DEFAULT_WORKSPACE=/config/workspace
+    volumes:
+      - /home/marcusz/codeserver-r/config-prog1:/config
+      - /home/marcusz/codeserver-r/config-prog2/workspace:/config/workspace/workspace-prog2:ro
+    expose:
+      - 8443
+    restart: unless-stopped
+
+  code-server-prog2:
+    image: lscr.io/linuxserver/code-server:latest
+    container_name: code-server-prog2
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - PASSWORD=passw0rd
+      - SUDO_PASSWORD=password
+      - PROXY_DOMAIN=code-server.my.domain
+      - DEFAULT_WORKSPACE=/config/workspace
+    volumes:
+      - /home/marcusz/codeserver-r/config-prog2:/config
+      - /home/marcusz/codeserver-r/config-prog1/workspace:/config/workspace/workspace-prog1:ro
+    expose:
+      - 8443
+    restart: unless-stopped
+
+  caddy:
+    image: caddy:2.9-alpine
+    restart: unless-stopped
+    cap_add:
+      - NET_ADMIN
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - $PWD/Caddyfile:/etc/caddy/Caddyfile
+      - caddy_data:/data
+      - caddy_config:/config
+
+volumes:
+  caddy_data:
+  caddy_config:
