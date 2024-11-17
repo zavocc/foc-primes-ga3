@@ -1,4 +1,4 @@
-This branch is for scripts and specs for setting up code server adhoc asynchronous collaboration fully-managed through cloud vps or fully on-premise infrastrcution.
+This branch is for scripts and specs for setting up code server adhoc asynchronous collaboration fully-managed through cloud vps or fully on-premise infrastructure.
 
 ### Works so far
 This setup is basic for team programming
