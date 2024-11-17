@@ -1,7 +1,7 @@
 staging1.geraldobtd.me {
-    reverse_proxy code-server-prog1:8443
+    reverse_proxy code-server-staging1:8443
 }
 
 staging2.geraldobtd.me {
-    reverse_proxy code-server-prog2:8443
+    reverse_proxy code-server-staging2:8443
 }
