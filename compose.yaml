@@ -20,6 +20,9 @@ services:
 
       # User 2 workspace
       - ${WORKDIR:-${PWD}}/workspace-${USER2_NAME:-staging2}:/config/workspace/${USER2_NAME:-staging2}-files:ro
+
+      # General share directory
+      - ${WORKDIR:-${PWD}}/share:/host_share:ro
     expose:
       - 8443
     restart: unless-stopped
@@ -44,6 +47,9 @@ services:
 
       # User 1 workspace
       - ${WORKDIR:-${PWD}}/workspace-${USER1_NAME:-staging1}:/config/workspace/${USER1_NAME:-staging1}-files:ro
+
+      # General share directory
+      - ${WORKDIR:-${PWD}}/share:/host_share:ro
     expose:
       - 8443
     restart: unless-stopped

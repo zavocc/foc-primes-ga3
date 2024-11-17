@@ -46,6 +46,10 @@ echo ""
     mkdir -p "workspace-${USER2_NAME:-staging2}"
 }
 
+# create share directory
+echo "[*] Creating share directory..."
+mkdir share
+
 echo "[*] Done! Please run 'docker compose up'"
 
 # Create .setupisdone file
