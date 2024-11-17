@@ -9,7 +9,7 @@ services:
       - TZ=Etc/UTC
       - PASSWORD=passw0rd
       - SUDO_PASSWORD=password
-      - PROXY_DOMAIN=code-server.my.domain
+      - PROXY_DOMAIN=staging1.geraldobtd.me
       - DEFAULT_WORKSPACE=/config/workspace
     volumes:
       - /home/marcusz/codeserver-r/config-staging1:/config
@@ -27,7 +27,7 @@ services:
       - TZ=Etc/UTC
       - PASSWORD=passw0rd
       - SUDO_PASSWORD=password
-      - PROXY_DOMAIN=code-server.my.domain
+      - PROXY_DOMAIN=staging2.geraldobtd.me
       - DEFAULT_WORKSPACE=/config/workspace
     volumes:
       - /home/marcusz/codeserver-r/config-staging2:/config
