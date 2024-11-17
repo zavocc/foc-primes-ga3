@@ -1,37 +1,49 @@
 ---
 services:
-  code-server-staging1:
+  code-server-user1:
     image: lscr.io/linuxserver/code-server:latest
-    container_name: code-server-staging1
+    container_name: code-server-${USER1_NAME:-staging1}
     environment:
       - PUID=1000
       - PGID=1000
       - TZ=Etc/UTC
       - PASSWORD=passw0rd
       - SUDO_PASSWORD=password
-      - PROXY_DOMAIN=staging1.geraldobtd.me
+      - PROXY_DOMAIN=${USER1_NAME:-staging1}.geraldobtd.me
       - DEFAULT_WORKSPACE=/config/workspace
     volumes:
-      - /home/marcusz/codeserver-r/config-staging1:/config
-      - /home/marcusz/codeserver-r/config-staging2/workspace:/config/workspace/workspace-staging2:ro
+      # User 1 config
+      - ${HOME}/${WORKDIR:-codeserver_docker}/config-${USER1_NAME:-staging1}:/config
+
+      # User 1 workspace
+      - ${HOME}/${WORKDIR:-codeserver_docker}/workspace-${USER1_NAME:-staging1}:/config/workspace
+
+      # User 2 workspace
+      - ${HOME}/${WORKDIR:-codeserver_docker}/workspace-${USER2_NAME:-staging2}:/config/workspace/workspace-${USER2_NAME:-staging2}:ro
     expose:
       - 8443
     restart: unless-stopped
 
-  code-server-staging2:
+  code-server-user2:
     image: lscr.io/linuxserver/code-server:latest
-    container_name: code-server-staging2
+    container_name: code-server-${USER2_NAME:-staging2}
     environment:
       - PUID=1000
       - PGID=1000
       - TZ=Etc/UTC
       - PASSWORD=passw0rd
       - SUDO_PASSWORD=password
-      - PROXY_DOMAIN=staging2.geraldobtd.me
+      - PROXY_DOMAIN=${USER2_NAME:-staging2}.geraldobtd.me
       - DEFAULT_WORKSPACE=/config/workspace
     volumes:
-      - /home/marcusz/codeserver-r/config-staging2:/config
-      - /home/marcusz/codeserver-r/config-staging1/workspace:/config/workspace/workspace-staging1:ro
+      # User 2 config
+      - ${HOME}/${WORKDIR:-codeserver_docker}/config-${USER2_NAME:-staging2}:/config
+
+      # User 2 workspace
+      - ${HOME}/${WORKDIR:-codeserver_docker}/workspace-${USER2_NAME:-staging2}:/config/workspace
+
+      # User 1 workspace
+      - ${HOME}/${WORKDIR:-codeserver_docker}/workspace-${USER1_NAME:-staging1}:/config/workspace/workspace-${USER1_NAME:-staging1}:ro
     expose:
       - 8443
     restart: unless-stopped
