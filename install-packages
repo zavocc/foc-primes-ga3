@@ -1,0 +1,11 @@
+### A WRAPPER TO INSTALL PACKAGES
+### FOR MANAGED CONTAINERS WHERE USERS CAN INSTALL PACKAGES
+if [ -z $APT_PERFORM_UPDATE ]; then
+    apt update
+
+    if [ -z $APT_PERFORM_UPGRADE ]; then
+        apt upgrade -y
+    fi
+fi
+
+apt install "$@"
