@@ -13,6 +13,7 @@ This setup is basic for team programming
 ### Reached the goals
 - Proper gitignore to ensure that bind mounts are not included when switching branches or rebases
 - Centralized `share:/host_share` directory for deploying or syncing up-to-date files for all instances of the containers (e.g. multiple extension or script deployment)
+- Install-packages script
 
 ### Quirks
 When bidrectionally sharing each other's workspace, one would see an empty folder of their workspace inside other person's workspace... \
