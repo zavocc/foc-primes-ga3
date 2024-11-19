@@ -29,6 +29,12 @@ if [ -f Caddyfile ]; then
     -e "s/staging1/${USER1_NAME:-staging1}/g" \
     -e "s/staging2/${USER2_NAME:-staging2}/g" \
     Caddyfile
+
+    # Ask if the user wants to edit the Caddyfile
+    read -p "Do you want to edit the Caddyfile? [y/n] " -n 1 -r
+    echo ""
+
+    [[ $REPLY =~ ^[Yy]$ ]] && ${EDITOR:-vi} Caddyfile
 fi
 
 # Autopopulate directories
