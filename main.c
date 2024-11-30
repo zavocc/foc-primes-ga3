@@ -11,7 +11,7 @@ int main()
         // i use while loop to detect error while entering input so it will repeat the question if there's a typo
         printf("Enter the starting number: ");
         validInput = scanf("%d", &start);
-        if (validInput =! 1 )
+        if (validInput != 1 )
         {
             // this code detects if the input is a string 
             printf("Invalid input! Please enter an integer.\n");
